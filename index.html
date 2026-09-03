@@ -21,39 +21,70 @@
 </head>
 <body>
   <h1>Privacy Policy — Prompt Gateway</h1>
-  <p class="meta"><strong>Effective date:</strong> July 9, 2026 &nbsp;·&nbsp;
+  <p class="meta"><strong>Effective date:</strong> September 3, 2026 &nbsp;·&nbsp;
      <strong>Contact:</strong> <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a></p>
 
-  <p>Prompt Gateway is a Chrome (Manifest V3) extension that turns a spoken or typed scenario into a
-     well-engineered prompt. This policy explains exactly what the extension handles, what it does
-     <strong>not</strong> keep, and where data goes. It is written to match how the software actually
-     behaves.</p>
+  <p>Prompt Gateway is a Chrome (Manifest V3) extension that prepares your own input for an AI model —
+     turning what you type, say, or paste into a better-structured prompt, context file, or plan. It does
+     this by sending your input to the Prompt Gateway service and returning the result. <strong>The
+     extension never answers your question itself.</strong> This policy explains exactly what it handles,
+     what it does <strong>not</strong> keep, and where data goes. It is written to match how the software
+     actually behaves.</p>
 
   <h2>What the extension does</h2>
-  <p>You speak or type a scenario into a side panel. The extension sends that input to your organization's
-     <strong>Prompt Gateway</strong> service over an encrypted (TLS) connection, which asks any clarifying
-     questions and returns an <strong>engineered prompt</strong>. The extension builds a prompt — it does
-     not answer your topic and has no model-execution step.</p>
+  <p>The extension adds a single side panel containing <strong>three tools</strong>, which you switch
+     between with a tab strip:</p>
+  <ul>
+    <li><strong>Prompt Gateway</strong> — you speak or type a scenario; it asks any clarifying questions
+        and returns an <strong>engineered prompt</strong>.</li>
+    <li><strong>Prompt Smart</strong> — you <strong>paste in a conversation</strong> you had with another
+        AI tool; it returns a portable <strong>context file</strong> you can hand to a different model.</li>
+    <li><strong>Prompt Plan</strong> — you <strong>write a description of a task</strong>; it asks up to
+        three clarifying questions and returns a structured <strong>plan file</strong>.</li>
+  </ul>
+  <p>All three take input <strong>you</strong> supply, send it to the Prompt Gateway service over an
+     encrypted (TLS) connection, and return a document you then use elsewhere. None of them answers your
+     topic, and there is no model-execution step.</p>
 
   <h2>What data is handled</h2>
   <ul>
     <li><strong>Voice audio</strong> — only while you hold the microphone button (push-to-talk). Audio is
         captured in the browser and streamed to the Prompt Gateway to be transcribed. It is used solely to
-        produce your prompt.</li>
+        produce your result.</li>
     <li><strong>Prompt text</strong> — what you type, the transcript of what you say, your answers to
         clarifying questions, and the resulting engineered prompt.</li>
+    <li><strong>A conversation you paste in (Prompt Smart).</strong> When you use Prompt Smart, the text
+        you paste — which may be an entire conversation you had with a <strong>different AI tool</strong>,
+        including anything you or that tool wrote in it — is sent to the Prompt Gateway service to be
+        turned into a context file. It is sent <strong>exactly as you pasted it</strong>; the extension
+        does not add to it, and it does not edit or reinterpret it.
+        <br />
+        <strong>Nothing is sent until you confirm.</strong> After you paste, the extension shows a consent
+        step naming the <strong>real destination</strong> it will send to and the <strong>size of what
+        will be sent</strong>, and no part of the paste leaves your browser until you press the button on
+        that step. The step appears <strong>every time</strong> you capture — there is no "don't show this
+        again" and no setting that turns it off. If you close the panel or go back instead, nothing was
+        transmitted.</li>
+    <li><strong>A task description you write (Prompt Plan)</strong>, together with your answers to its
+        clarifying questions. If you choose to attach a context file that Prompt Smart produced earlier,
+        that attached text is sent with the task — so content originating in a conversation you pasted can
+        reach the service a second time as part of a plan request. The panel shows when a context file is
+        attached and lets you remove it before sending.</li>
     <li><strong>Authentication data</strong> — a sign-in token from Google Identity Platform used to
-        authenticate you to the gateway, and a client-safe copy of your organization's usage policy.</li>
+        authenticate you to the gateway, a client-safe copy of the usage policy that applies to you, and
+        the list of which tools your plan includes.</li>
   </ul>
 
   <h2>What is NOT stored</h2>
   <ul>
-    <li><strong>No transcripts, no audio, no prompts, and no results are persisted by the extension.</strong>
-        They live only in the memory of the open side panel and are gone when you close it.</li>
+    <li><strong>No transcripts, no audio, no prompts, no pasted conversations, no task descriptions, and
+        no results are persisted by the extension.</strong> They live only in the memory of the open side
+        panel and are gone when you close it.</li>
     <li>By default the only values the extension stores are your <strong>authentication token</strong> and
         the <strong>client-safe policy</strong>, and only in <code>chrome.storage.session</code> — an
-        in-memory area that Chrome clears when the browser closes and that web pages cannot read. A small
-        non-sensitive UI preference (light/dark theme) may be stored locally.</li>
+        in-memory area that Chrome clears when the browser closes and that web pages cannot read. Small
+        non-sensitive UI preferences (light/dark theme, which tool was last open) may be stored locally.
+        Those preferences record a setting, never any content.</li>
     <li><strong>"Keep me signed in on this device" (optional).</strong> If — and only if — you tick this box
         at sign-in, the extension keeps you signed in across browser restarts by saving a single
         <strong>sign-in refresh token</strong> to local storage in <strong>encrypted</strong> form (it is
@@ -61,51 +92,72 @@
         device). No conversation content is ever saved. Leaving the box unticked keeps the default above
         (you are signed out when the browser closes). Signing out deletes the saved token and its
         encryption key.</li>
-    <li>The <strong>only</strong> way any conversation is saved to disk is if <strong>you</strong> click
-        <strong>Save chat</strong>, which downloads a Markdown (<code>.md</code>) file to your own device.
-        The extension never uploads or retains that file.</li>
+    <li>The <strong>only</strong> way anything is saved to disk is if <strong>you</strong> click the
+        download action in a tool — <strong>Save chat</strong>, <strong>Download context file</strong>, or
+        <strong>Download plan</strong> — which writes a Markdown (<code>.md</code>) file to your own
+        device. The extension never uploads or retains that file. Because nothing else is kept, closing
+        the panel without downloading discards the result.</li>
   </ul>
 
   <h2>Where data goes (no third parties)</h2>
-  <p>The extension communicates <strong>only</strong> with your organization's <strong>Prompt Gateway</strong>
-     endpoint (over TLS) and <strong>Google Identity Platform</strong> endpoints
-     (<code>identitytoolkit.googleapis.com</code>, <code>securetoken.googleapis.com</code>) for sign-in.
-     It makes <strong>no other network calls</strong>. There are <strong>no advertising, analytics, or
-     third-party tracking</strong> services, and <strong>your data is never sold</strong>. These
-     restrictions are enforced by the extension's <code>host_permissions</code> and Content Security Policy.
-     The extension does <strong>not</strong> read the web pages you visit — there is no page-reading
-     capability of any kind.</p>
+  <p>The extension communicates <strong>only</strong> with the <strong>Prompt Gateway</strong> service at
+     <code>https://edge.promptgateways.com</code> (over TLS) and <strong>Google Identity Platform</strong>
+     endpoints (<code>identitytoolkit.googleapis.com</code>, <code>securetoken.googleapis.com</code>) for
+     sign-in. It makes <strong>no other network calls</strong>. There are <strong>no advertising,
+     analytics, or third-party tracking</strong> services, and <strong>your data is never sold</strong>.
+     These restrictions are enforced by the extension's <code>host_permissions</code> and Content Security
+     Policy, which allow those addresses and nothing else. The extension does <strong>not</strong> read the
+     web pages you visit — there is no page-reading capability of any kind, and that includes Prompt Smart,
+     which works only from text you paste in yourself.</p>
 
   <h2>Server-side processing (transparency note)</h2>
-  <p>Once your input reaches the Prompt Gateway, it is processed by backend services to build your prompt,
-     which includes sending prompt content to a language model that authors the final prompt. In the current
+  <p>Once your input reaches the Prompt Gateway, it is processed by backend services to build your result,
+     which includes sending your content to a language model that authors the final document. In the current
      configuration, server-side redaction and encryption stages are <strong>turned off for cost reasons</strong>,
-     so prompt text reaches the prompt-authoring language model <strong>without automated redaction</strong>.
+     so your text reaches the authoring language model <strong>without automated redaction</strong>.
      A safety check still runs. Please avoid entering sensitive personal information you would not want
-     processed by that service. The no-storage guarantees above are about <strong>this extension on your
-     device</strong> and are unaffected.</p>
+     processed by that service — and note that this applies equally to a conversation you paste into Prompt
+     Smart, which may contain more than you remember writing. The no-storage guarantees above are about
+     <strong>this extension on your device</strong> and are unaffected.</p>
+
+  <h2>Who is responsible for your data</h2>
+  <p>This depends on how you got Prompt Gateway, and it changes who you should contact.</p>
+  <ul>
+    <li><strong>If you signed up yourself</strong> (an individual or a team buying directly), <strong>Prompt
+        Gateway, Inc. is the controller</strong> of your data. Contact us at
+        <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a> for any request about it.</li>
+    <li><strong>If your employer or another organization deployed it for you</strong>, that organization
+        configures the service and sets the usage policy applied to your account. They are the controller
+        for the content you submit through it, and we process it on their behalf. Contact your
+        organization's administrator first; you can also write to us at the address above and we will
+        direct your request.</li>
+  </ul>
 
   <h2>Permissions and why they exist</h2>
   <ul>
     <li><strong>sidePanel</strong> — draws the single side-panel interface (the only surface).</li>
-    <li><strong>storage</strong> — holds the session-only auth token and policy, the local theme
-        preference, and (only if you choose "Keep me signed in") an encrypted refresh token.</li>
+    <li><strong>storage</strong> — holds the session-only auth token and policy, the local UI preferences,
+        and (only if you choose "Keep me signed in") an encrypted refresh token.</li>
     <li><strong>identity</strong> — completes the Google Identity Platform sign-in token exchange.</li>
     <li><strong>contextMenus</strong> — adds a right-click entry to open the panel.</li>
     <li><strong>Microphone</strong> — requested at runtime by Chrome when you first use push-to-talk; used
         only to capture your voice for transcription. No microphone permission is declared in the manifest.</li>
-    <li><strong>Host permissions</strong> — limited to your gateway origin and the two Google Identity
-        endpoints above.</li>
+    <li><strong>Host permissions</strong> — limited to <code>https://edge.promptgateways.com</code> and the
+        two Google Identity endpoints above. No page or tab access of any kind is requested.</li>
   </ul>
 
   <h2>Data retention and deletion</h2>
-  <p>Because the extension stores no conversation content, there is nothing to delete on your device beyond
-     closing the browser (which clears the session store), <strong>signing out</strong> (which also deletes
-     the optional encrypted "Keep me signed in" token and its key), or removing the extension. For data
-     handled by your organization's Prompt Gateway service, contact your organization's administrator.</p>
+  <p>Because the extension stores no content, there is nothing to delete on your device beyond closing the
+     browser (which clears the session store), <strong>signing out</strong> (which also deletes the optional
+     encrypted "Keep me signed in" token and its key), or removing the extension. Files you chose to
+     download are yours and are never touched by the extension again.</p>
+  <p>For data handled by the Prompt Gateway service itself: if you signed up directly, write to
+     <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a>. If your organization deployed
+     the extension, contact your organization's administrator, who controls that service's configuration.</p>
 
   <h2>Children</h2>
-  <p>Prompt Gateway is a workplace/productivity tool and is not directed to children under 13.</p>
+  <p>Prompt Gateway is a productivity tool for general and professional use and is not directed to children
+     under 13.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy changes materially, we will update the effective date above and the hosted page.</p>
