@@ -14,155 +14,220 @@
     @media (prefers-color-scheme: dark) { body { color: #e8e8ed; background: #111; } a { color: #6cb2ff; } }
     h1 { font-size: 1.8rem; margin-bottom: .2em; }
     h2 { font-size: 1.2rem; margin-top: 1.8em; }
+    h3 { font-size: 1rem; margin-top: 1.3em; margin-bottom: .3em; }
     .meta { color: #6e6e73; font-size: .95rem; }
     code { background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; font-size: .9em; }
     ul { padding-left: 1.3em; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+    th, td { text-align: left; vertical-align: top; padding: .45em .6em; border-bottom: 1px solid rgba(127,127,127,.3); }
+    th { font-weight: 600; }
   </style>
 </head>
 <body>
   <h1>Privacy Policy — Prompt Gateway</h1>
-  <p class="meta"><strong>Effective date:</strong> September 3, 2026 &nbsp;·&nbsp;
+  <p class="meta"><strong>Effective date:</strong> September 27, 2026 &nbsp;·&nbsp;
      <strong>Contact:</strong> <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a></p>
 
-  <p>Prompt Gateway is a Chrome (Manifest V3) extension that prepares your own input for an AI model —
-     turning what you type, say, or paste into a better-structured prompt, context file, or plan. It does
-     this by sending your input to the Prompt Gateway service and returning the result. <strong>The
-     extension never answers your question itself.</strong> This policy explains exactly what it handles,
-     what it does <strong>not</strong> keep, and where data goes. It is written to match how the software
-     actually behaves.</p>
+  <p>This policy explains what the Prompt Gateway Chrome extension and the Prompt Gateway service collect,
+     how that information is used, where and for how long it is stored, and who it is shared with. It is
+     written to match how the software actually behaves today.</p>
 
-  <h2>What the extension does</h2>
-  <p>The extension adds a single side panel containing <strong>three tools</strong>, which you switch
-     between with a tab strip:</p>
-  <ul>
-    <li><strong>Prompt Gateway</strong> — you speak or type a scenario; it asks any clarifying questions
-        and returns an <strong>engineered prompt</strong>.</li>
-    <li><strong>Prompt Smart</strong> — you <strong>paste in a conversation</strong> you had with another
-        AI tool; it returns a portable <strong>context file</strong> you can hand to a different model.</li>
-    <li><strong>Prompt Plan</strong> — you <strong>write a description of a task</strong>; it asks up to
-        three clarifying questions and returns a structured <strong>plan file</strong>.</li>
-  </ul>
-  <p>All three take input <strong>you</strong> supply, send it to the Prompt Gateway service over an
-     encrypted (TLS) connection, and return a document you then use elsewhere. None of them answers your
-     topic, and there is no model-execution step.</p>
+  <h2>1. Who we are</h2>
+  <p>Prompt Gateway is operated by <strong>Varad Software Solutions LLC</strong> ("we", "us"). Prompt
+     Gateway is the brand name of the extension and the service. If you signed up yourself, we are the
+     controller of your personal data. You can reach us about anything in this policy at
+     <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a>.</p>
 
-  <h2>What data is handled</h2>
+  <h2>2. What the extension does</h2>
+  <p>Prompt Gateway is a Chrome (Manifest V3) extension that opens a side panel. In it you type or speak a
+     rough idea, answer a few clarifying questions, and receive a better-structured prompt. You then copy
+     that prompt and paste it into any AI chatbot yourself. To do this, the extension sends your input to the
+     Prompt Gateway service and shows you the result. <strong>The extension does not read, fill in or
+     send anything to the web pages you visit.</strong> It has no page access of any kind, and it does not
+     answer your question itself.</p>
+
+  <h2>3. Data we collect</h2>
+
+  <h3>In the extension</h3>
   <ul>
-    <li><strong>Voice audio</strong> — only while you hold the microphone button (push-to-talk). Audio is
-        captured in the browser and streamed to the Prompt Gateway to be transcribed. It is used solely to
-        produce your result.</li>
-    <li><strong>Prompt text</strong> — what you type, the transcript of what you say, your answers to
-        clarifying questions, and the resulting engineered prompt.</li>
-    <li><strong>A conversation you paste in (Prompt Smart).</strong> When you use Prompt Smart, the text
-        you paste — which may be an entire conversation you had with a <strong>different AI tool</strong>,
-        including anything you or that tool wrote in it — is sent to the Prompt Gateway service to be
-        turned into a context file. It is sent <strong>exactly as you pasted it</strong>; the extension
-        does not add to it, and it does not edit or reinterpret it.
-        <br />
-        <strong>Nothing is sent until you confirm.</strong> After you paste, the extension shows a consent
-        step naming the <strong>real destination</strong> it will send to and the <strong>size of what
-        will be sent</strong>, and no part of the paste leaves your browser until you press the button on
-        that step. The step appears <strong>every time</strong> you capture — there is no "don't show this
-        again" and no setting that turns it off. If you close the panel or go back instead, nothing was
-        transmitted.</li>
-    <li><strong>A task description you write (Prompt Plan)</strong>, together with your answers to its
-        clarifying questions. If you choose to attach a context file that Prompt Smart produced earlier,
-        that attached text is sent with the task — so content originating in a conversation you pasted can
-        reach the service a second time as part of a plan request. The panel shows when a context file is
-        attached and lets you remove it before sending.</li>
-    <li><strong>Authentication data</strong> — a sign-in token from Google Identity Platform used to
-        authenticate you to the gateway, a client-safe copy of the usage policy that applies to you, and
-        the list of which tools your plan includes.</li>
+    <li><strong>Sign-in details.</strong> The email address and password you enter to sign in. They are sent
+        directly to Google Identity Platform to sign you in. The extension does not store your password.</li>
+    <li><strong>Sign-in tokens.</strong> The tokens Google Identity Platform returns after you sign in.
+        They are used to authenticate your requests to our service.</li>
+    <li><strong>Voice audio</strong>, recorded only while you hold down the microphone button (push-to-talk).
+        It is sent to our service to be transcribed.</li>
+    <li><strong>Prompt text.</strong> This covers what you type, the transcript of what you say, your answers
+        to clarifying questions, and the prompt produced for you.</li>
+    <li><strong>Your usage policy and plan.</strong> The extension fetches the usage settings and plan
+        information that apply to your account so it can show what you are allowed to use.</li>
   </ul>
 
-  <h2>What is NOT stored</h2>
+  <h3>When you create an account in the web portal</h3>
+  <p>The extension's "Create a free account" button opens our web portal at
+     <code>app.promptgateways.com</code>. When you sign up there we collect your <strong>email
+     address</strong>, a <strong>password</strong> (held by Google Identity Platform; we never see it), your
+     <strong>name</strong> (optional) and your acceptance of our terms. We then create an account record
+     containing your email address, whether it has been verified, your name if you gave one, an internal
+     user ID, and your organization, role, plan and trial dates.</p>
+
+  <h3>Payment data</h3>
+  <p>If you subscribe, you enter your payment details on a checkout page hosted by <strong>Stripe</strong>.
+     <strong>We never receive or store your card number.</strong> We keep only the identifiers Stripe gives
+     us (a customer ID and a subscription ID) plus your plan, billing interval, seat count, subscription
+     status and renewal date.</p>
+
+  <h3>Request metadata and logs</h3>
+  <p>When the extension talks to our service, our hosting provider (Google Cloud) records standard request
+     metadata. That includes your <strong>IP address</strong>, <strong>browser user agent</strong>, the
+     request URL and method, the response status, the time and how long the request took. Our own services
+     also log operational events, which contain only identifiers, status codes, timings and counts.
+     <strong>No log contains the content of your prompts, audio, transcripts or results.</strong></p>
+
+  <h2>4. How we use it</h2>
   <ul>
-    <li><strong>No transcripts, no audio, no prompts, no pasted conversations, no task descriptions, and
-        no results are persisted by the extension.</strong> They live only in the memory of the open side
-        panel and are gone when you close it.</li>
-    <li>By default the only values the extension stores are your <strong>authentication token</strong> and
-        the <strong>client-safe policy</strong>, and only in <code>chrome.storage.session</code> — an
-        in-memory area that Chrome clears when the browser closes and that web pages cannot read. Small
-        non-sensitive UI preferences (light/dark theme, which tool was last open) may be stored locally.
-        Those preferences record a setting, never any content.</li>
-    <li><strong>"Keep me signed in on this device" (optional).</strong> If — and only if — you tick this box
-        at sign-in, the extension keeps you signed in across browser restarts by saving a single
-        <strong>sign-in refresh token</strong> to local storage in <strong>encrypted</strong> form (it is
-        never stored as readable text, and the encryption key stays in your browser and never leaves your
-        device). No conversation content is ever saved. Leaving the box unticked keeps the default above
-        (you are signed out when the browser closes). Signing out deletes the saved token and its
-        encryption key.</li>
-    <li>The <strong>only</strong> way anything is saved to disk is if <strong>you</strong> click the
-        download action in a tool — <strong>Save chat</strong>, <strong>Download context file</strong>, or
-        <strong>Download plan</strong> — which writes a Markdown (<code>.md</code>) file to your own
-        device. The extension never uploads or retains that file. Because nothing else is kept, closing
-        the panel without downloading discards the result.</li>
+    <li>To <strong>produce your result</strong>, meaning to transcribe your voice, check your input for safety,
+        ask clarifying questions and write your prompt.</li>
+    <li>To <strong>sign you in</strong> and authenticate each request.</li>
+    <li>To <strong>enforce your plan and usage limits</strong>, including trials, seats and request quotas.</li>
+    <li>To <strong>bill you</strong> for a paid subscription.</li>
+    <li>To <strong>keep the service secure and working</strong>, which includes detecting abuse, rate limiting
+        and diagnosing errors.</li>
+  </ul>
+  <p>We do <strong>not</strong> use your data for advertising or profiling, we do <strong>not</strong> sell
+     it, and we do <strong>not</strong> use your prompts to train models.</p>
+
+  <h2>5. How we store it and for how long</h2>
+
+  <h3>On your device</h3>
+  <ul>
+    <li><strong>Session storage.</strong> Your sign-in tokens and your usage policy are kept in
+        <code>chrome.storage.session</code>. This is an in-memory area that Chrome clears when the browser
+        closes and that web pages cannot read.</li>
+    <li><strong>"Keep me signed in on this device" (optional).</strong> Only if you tick this box, the extension
+        saves one <strong>sign-in refresh token</strong> to <code>chrome.storage.local</code> so you stay signed
+        in after a browser restart. The token is stored only in <strong>encrypted</strong> form. Its encryption
+        key is created in your browser, cannot be exported and never leaves your device. Signing out deletes
+        the saved token and its key.</li>
+    <li><strong>A UI preference</strong> (which view was last open) is kept in <code>chrome.storage.local</code>.
+        It records a setting and contains no content.</li>
+    <li><strong>Your prompts, audio, transcripts and results are not stored by the extension.</strong> They exist
+        only in the memory of the open side panel and are gone when you close it.</li>
+    <li><strong>Downloads.</strong> A file is written to your device only when you click <strong>Save
+        chat</strong>. That saves the conversation as a Markdown (<code>.md</code>) file to your own
+        downloads. The extension never uploads or reads that file again.</li>
   </ul>
 
-  <h2>Where data goes (no third parties)</h2>
-  <p>The extension communicates <strong>only</strong> with the <strong>Prompt Gateway</strong> service at
-     <code>https://edge.promptgateways.com</code> (over TLS) and <strong>Google Identity Platform</strong>
-     endpoints (<code>identitytoolkit.googleapis.com</code>, <code>securetoken.googleapis.com</code>) for
-     sign-in. It makes <strong>no other network calls</strong>. There are <strong>no advertising,
-     analytics, or third-party tracking</strong> services, and <strong>your data is never sold</strong>.
-     These restrictions are enforced by the extension's <code>host_permissions</code> and Content Security
-     Policy, which allow those addresses and nothing else. The extension does <strong>not</strong> read the
-     web pages you visit — there is no page-reading capability of any kind, and that includes Prompt Smart,
-     which works only from text you paste in yourself.</p>
+  <h3>On our servers</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>What</th><th>Where</th><th>How long</th></tr></thead>
+    <tbody>
+      <tr><td>Account records (email, name, verified status, user ID, organization, role, plan, trial dates)</td>
+          <td>Our database on Google Cloud (Cloud SQL, United States)</td>
+          <td>Until you ask us to delete your account</td></tr>
+      <tr><td>Sign-in credentials (email, password hash)</td>
+          <td>Google Identity Platform</td>
+          <td>Until you ask us to delete your account</td></tr>
+      <tr><td>Subscription records (Stripe customer and subscription IDs, plan, seats, status)</td>
+          <td>Our database on Google Cloud</td>
+          <td>Until you ask us to delete your account</td></tr>
+      <tr><td>Database backups</td>
+          <td>Google Cloud</td>
+          <td>The 7 most recent automated backups plus 7 days of recovery logs; older copies are deleted automatically</td></tr>
+      <tr><td>Request metadata and operational logs (IP address, user agent, URL, status, timing)</td>
+          <td>Google Cloud Logging</td>
+          <td>30 days, then deleted automatically</td></tr>
+      <tr><td>Prompt content (your text, audio, transcripts, answers and results)</td>
+          <td>Not stored</td>
+          <td>Processed in memory only while your request runs, then discarded</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>We do not store the content of your prompts.</strong> Your text, voice audio, transcripts,
+     clarifying answers and generated prompts are held only in memory while your request is processed. They
+     are not written to any database, file or log.</p>
 
-  <h2>Server-side processing (transparency note)</h2>
-  <p>Once your input reaches the Prompt Gateway, it is processed by backend services to build your result,
-     which includes sending your content to a language model that authors the final document. In the current
-     configuration, server-side redaction and encryption stages are <strong>turned off for cost reasons</strong>,
-     so your text reaches the authoring language model <strong>without automated redaction</strong>.
-     A safety check still runs. Please avoid entering sensitive personal information you would not want
-     processed by that service — and note that this applies equally to a conversation you paste into Prompt
-     Smart, which may contain more than you remember writing. The no-storage guarantees above are about
-     <strong>this extension on your device</strong> and are unaffected.</p>
-
-  <h2>Who is responsible for your data</h2>
-  <p>This depends on how you got Prompt Gateway, and it changes who you should contact.</p>
+  <h2>6. Who we share it with</h2>
+  <p>We share data only with the service providers we need to run Prompt Gateway, and only for that purpose:</p>
   <ul>
-    <li><strong>If you signed up yourself</strong> (an individual or a team buying directly), <strong>Prompt
-        Gateway, Inc. is the controller</strong> of your data. Contact us at
-        <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a> for any request about it.</li>
-    <li><strong>If your employer or another organization deployed it for you</strong>, that organization
-        configures the service and sets the usage policy applied to your account. They are the controller
-        for the content you submit through it, and we process it on their behalf. Contact your
-        organization's administrator first; you can also write to us at the address above and we will
-        direct your request.</li>
+    <li><strong>A third-party AI model provider.</strong> Your prompt text, transcript and clarifying answers are
+        sent to it only to run the safety check and to generate your questions and your prompt. Your voice audio
+        is also sent to it to be transcribed.</li>
+    <li><strong>A third-party cloud computing provider</strong> that hosts our speech-to-text service. It
+        receives your voice audio only, and only to transcribe it.</li>
+    <li><strong>Google.</strong> Google Identity Platform handles sign-in and holds your email address and
+        password hash. Google Cloud hosts our service, database and logs.</li>
+    <li><strong>Stripe.</strong> Stripe processes payments. You give your payment details to Stripe directly.</li>
+    <li><strong>Your organization's administrator</strong>, if your employer or another organization set up
+        Prompt Gateway for you. Your administrator can see your membership and role and controls the usage
+        policy applied to your account.</li>
+  </ul>
+  <p><strong>We do not sell user data.</strong> The extension and the service use <strong>no advertising or
+     analytics services</strong> and no third-party tracking. The extension makes network requests only to our
+     service at <code>https://edge.promptgateways.com</code> and to Google Identity Platform
+     (<code>identitytoolkit.googleapis.com</code>, <code>securetoken.googleapis.com</code>). Its
+     <code>host_permissions</code> and Content Security Policy allow no other network destinations.
+     We may also disclose information if the law requires it.</p>
+
+  <h2>7. Security</h2>
+  <p>Every connection between the extension, our service and our providers is encrypted in transit with TLS.
+     Access to our systems is restricted, and our services authenticate every request.</p>
+  <p><strong>Please note:</strong> in the current configuration, our service's automated redaction and
+     encryption stages are <strong>turned off</strong>. Your text therefore reaches the AI model provider
+     <strong>without automated redaction</strong> of personal information. A safety check still runs on every
+     request. Please avoid entering sensitive personal information, such as passwords, financial details or
+     health information, that you would not want processed by that provider.</p>
+
+  <h2>8. Permissions and why</h2>
+  <ul>
+    <li><strong>sidePanel</strong>: shows the side panel, which is the extension's only interface.</li>
+    <li><strong>storage</strong>: holds the session-only sign-in tokens and usage policy, the UI preference and,
+        only if you choose "Keep me signed in", the encrypted refresh token.</li>
+    <li><strong>contextMenus</strong>: adds a right-click menu entry that opens the panel.</li>
+    <li><strong>Host permissions</strong>: limited to <code>https://edge.promptgateways.com</code> (our service),
+        <code>https://securetoken.googleapis.com</code> and <code>https://identitytoolkit.googleapis.com</code>
+        (Google Identity Platform sign-in). The extension requests no access to web pages or tabs.</li>
+    <li><strong>Microphone</strong>: Chrome asks for this at runtime the first time you use push-to-talk. It is
+        used only to record your voice while you hold the button. It is not declared in the manifest.</li>
   </ul>
 
-  <h2>Permissions and why they exist</h2>
+  <h2>9. Your choices and deletion</h2>
   <ul>
-    <li><strong>sidePanel</strong> — draws the single side-panel interface (the only surface).</li>
-    <li><strong>storage</strong> — holds the session-only auth token and policy, the local UI preferences,
-        and (only if you choose "Keep me signed in") an encrypted refresh token.</li>
-    <li><strong>identity</strong> — completes the Google Identity Platform sign-in token exchange.</li>
-    <li><strong>contextMenus</strong> — adds a right-click entry to open the panel.</li>
-    <li><strong>Microphone</strong> — requested at runtime by Chrome when you first use push-to-talk; used
-        only to capture your voice for transcription. No microphone permission is declared in the manifest.</li>
-    <li><strong>Host permissions</strong> — limited to <code>https://edge.promptgateways.com</code> and the
-        two Google Identity endpoints above. No page or tab access of any kind is requested.</li>
+    <li><strong>Sign out</strong> in the panel to delete the sign-in tokens, the usage policy and any saved
+        "Keep me signed in" token and key from your device. Closing the browser also clears session storage.</li>
+    <li><strong>Uninstall</strong> the extension to remove everything it stored on your device. Files you chose
+        to download stay yours.</li>
+    <li><strong>Voice is optional.</strong> You can type instead, and you can revoke microphone access in
+        Chrome's site settings at any time.</li>
+    <li><strong>Access or deletion.</strong> To get a copy of your account data or to delete your account, email
+        <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a> from the address on the account.
+        When we delete your account, we remove your account, sign-in and subscription records. Remaining copies
+        in backups and logs expire on the schedule in section 5. Stripe keeps its own payment records under its own
+        privacy policy. You can cancel a paid subscription at any time
+        from the billing page of the web portal.</li>
+    <li><strong>If your organization deployed Prompt Gateway for you</strong>, that organization configures the
+        service and sets the usage policy applied to your account. It is the controller for the content you
+        submit through it, and we process that content on its behalf. <strong>Contact your organization's
+        administrator first.</strong> You can also write to us at the address above and we will direct your
+        request.</li>
   </ul>
 
-  <h2>Data retention and deletion</h2>
-  <p>Because the extension stores no content, there is nothing to delete on your device beyond closing the
-     browser (which clears the session store), <strong>signing out</strong> (which also deletes the optional
-     encrypted "Keep me signed in" token and its key), or removing the extension. Files you chose to
-     download are yours and are never touched by the extension again.</p>
-  <p>For data handled by the Prompt Gateway service itself: if you signed up directly, write to
-     <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a>. If your organization deployed
-     the extension, contact your organization's administrator, who controls that service's configuration.</p>
+  <h2>10. Chrome Web Store Limited Use</h2>
+  <p>Prompt Gateway's use of information received complies with the
+     <a href="https://developer.chrome.com/docs/webstore/program-policies/policies">Chrome Web Store User Data
+     Policy</a>, including the Limited Use requirements.</p>
 
-  <h2>Children</h2>
-  <p>Prompt Gateway is a productivity tool for general and professional use and is not directed to children
-     under 13.</p>
+  <h2>11. Children</h2>
+  <p>Prompt Gateway is a productivity tool for general and professional use. It is not directed to children
+     under 13, and we do not knowingly collect personal information from children under 13. If you believe a
+     child has given us personal information, contact us and we will delete it.</p>
 
-  <h2>Changes to this policy</h2>
-  <p>If this policy changes materially, we will update the effective date above and the hosted page.</p>
+  <h2>12. Changes to this policy</h2>
+  <p>If we change this policy, we will update this page and the effective date above.</p>
 
-  <h2>Contact</h2>
-  <p>Questions about this policy: <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a>.</p>
+  <h2>13. Contact</h2>
+  <p>Varad Software Solutions LLC, operator of Prompt Gateway:
+     <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a>.</p>
 </body>
 </html>
