@@ -26,7 +26,7 @@
 </head>
 <body>
   <h1>Privacy Policy — Prompt Gateway</h1>
-  <p class="meta"><strong>Effective date:</strong> September 27, 2026 &nbsp;·&nbsp;
+  <p class="meta"><strong>Effective date:</strong> October 1, 2026 &nbsp;·&nbsp;
      <strong>Contact:</strong> <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a></p>
 
   <p>This policy explains what the Prompt Gateway Chrome extension and the Prompt Gateway service collect,
@@ -84,6 +84,12 @@
      also log operational events, which contain only identifiers, status codes, timings and counts.
      <strong>No log contains the content of your prompts, audio, transcripts or results.</strong></p>
 
+  <h3>Account activity</h3>
+  <p>For each account we keep a small activity record: the <strong>number of prompt sessions you have
+     started</strong>, the <strong>number you have completed</strong>, the <strong>time you first used</strong>
+     Prompt Gateway, and the <strong>time your third prompt was completed</strong>. This record holds only
+     identifiers, counts and times. <strong>It never contains the content of your prompts.</strong></p>
+
   <h2>4. How we use it</h2>
   <ul>
     <li>To <strong>produce your result</strong>, meaning to transcribe your voice, check your input for safety,
@@ -93,9 +99,14 @@
     <li>To <strong>bill you</strong> for a paid subscription.</li>
     <li>To <strong>keep the service secure and working</strong>, which includes detecting abuse, rate limiting
         and diagnosing errors.</li>
+    <li>To <strong>email you</strong>. We send three kinds of email: onboarding emails (how to install and use
+        the extension), trial notices (for example, that your trial ends in 3 days or has ended) and upgrade
+        offers (for example, a discount for annual billing). Your account activity record decides when these
+        emails are sent.</li>
   </ul>
-  <p>We do <strong>not</strong> use your data for advertising or profiling, we do <strong>not</strong> sell
-     it, and we do <strong>not</strong> use your prompts to train models.</p>
+  <p>We use your account activity only to time the emails we send you. We do <strong>not</strong> use your
+     data for third-party advertising or ad targeting, we do <strong>not</strong> sell it, and we do
+     <strong>not</strong> use your prompts to train models.</p>
 
   <h2>5. How we store it and for how long</h2>
 
@@ -132,6 +143,9 @@
       <tr><td>Subscription records (Stripe customer and subscription IDs, plan, seats, status)</td>
           <td>Our database on Google Cloud</td>
           <td>Until you ask us to delete your account</td></tr>
+      <tr><td>Account activity (prompt sessions started and completed, time of first use, time the 3rd prompt completed)</td>
+          <td>Our database on Google Cloud</td>
+          <td>While your account is active; deleted with your account</td></tr>
       <tr><td>Database backups</td>
           <td>Google Cloud</td>
           <td>The 7 most recent automated backups plus 7 days of recovery logs; older copies are deleted automatically</td></tr>
@@ -159,12 +173,18 @@
     <li><strong>Google.</strong> Google Identity Platform handles sign-in and holds your email address and
         password hash. Google Cloud hosts our service, database and logs.</li>
     <li><strong>Stripe.</strong> Stripe processes payments. You give your payment details to Stripe directly.</li>
+    <li><strong>A third-party email delivery provider</strong>, which sends our onboarding, trial-notice and
+        upgrade-offer emails. It receives your email address, your plan status, your trial end date and
+        account milestones (signed up, first prompt completed, 3 prompts completed). It never receives the
+        content of your prompts. The provider may record whether an email was opened and whether a link in it
+        was clicked.</li>
     <li><strong>Your organization's administrator</strong>, if your employer or another organization set up
         Prompt Gateway for you. Your administrator can see your membership and role and controls the usage
         policy applied to your account.</li>
   </ul>
   <p><strong>We do not sell user data.</strong> The extension and the service use <strong>no advertising or
-     analytics services</strong> and no third-party tracking. The extension makes network requests only to our
+     analytics services</strong>, and the extension contains no third-party tracking. Apart from the email
+     open and click records described above, there is no third-party tracking. The extension makes network requests only to our
      service at <code>https://edge.promptgateways.com</code> and to Google Identity Platform
      (<code>identitytoolkit.googleapis.com</code>, <code>securetoken.googleapis.com</code>). Its
      <code>host_permissions</code> and Content Security Policy allow no other network destinations.
@@ -200,9 +220,11 @@
         to download stay yours.</li>
     <li><strong>Voice is optional.</strong> You can type instead, and you can revoke microphone access in
         Chrome's site settings at any time.</li>
+    <li><strong>Emails.</strong> Every onboarding and upgrade-offer email contains an unsubscribe link. Trial
+        notices and billing service notices may still be sent while your account is active.</li>
     <li><strong>Access or deletion.</strong> To get a copy of your account data or to delete your account, email
         <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a> from the address on the account.
-        When we delete your account, we remove your account, sign-in and subscription records. Remaining copies
+        When we delete your account, we remove your account, sign-in, subscription and account activity records. Remaining copies
         in backups and logs expire on the schedule in section 5. Stripe keeps its own payment records under its own
         privacy policy. You can cancel a paid subscription at any time
         from the billing page of the web portal.</li>
