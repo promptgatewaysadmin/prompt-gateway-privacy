@@ -26,7 +26,7 @@
 </head>
 <body>
   <h1>Privacy Policy — Prompt Gateway</h1>
-  <p class="meta"><strong>Effective date:</strong> October 2, 2026 &nbsp;·&nbsp;
+  <p class="meta"><strong>Effective date:</strong> October 14, 2026 &nbsp;·&nbsp;
      <strong>Contact:</strong> <a href="mailto:admin@promptgateways.com">admin@promptgateways.com</a></p>
 
   <p>This policy explains what the Prompt Gateway Chrome extension and the Prompt Gateway service collect,
@@ -135,20 +135,20 @@
     <thead><tr><th>What</th><th>Where</th><th>How long</th></tr></thead>
     <tbody>
       <tr><td>Account records (email, name, verified status, user ID, organization, role, plan, trial dates)</td>
-          <td>Our database on Google Cloud (Cloud SQL, United States)</td>
+          <td>Our database on Neon (Amazon Web Services, United States)</td>
           <td>Until you ask us to delete your account</td></tr>
       <tr><td>Sign-in credentials (email, password hash)</td>
           <td>Google Identity Platform</td>
           <td>Until you ask us to delete your account</td></tr>
       <tr><td>Subscription records (Stripe customer and subscription IDs, plan, seats, status)</td>
-          <td>Our database on Google Cloud</td>
+          <td>Our database on Neon</td>
           <td>Until you ask us to delete your account</td></tr>
       <tr><td>Account activity (prompt sessions started and completed, time of first use, time the 3rd prompt completed)</td>
-          <td>Our database on Google Cloud</td>
+          <td>Our database on Neon</td>
           <td>While your account is active; deleted with your account</td></tr>
       <tr><td>Database backups</td>
-          <td>Google Cloud</td>
-          <td>The 7 most recent automated backups plus 7 days of recovery logs; older copies are deleted automatically</td></tr>
+          <td>Neon; and a rollback copy of the database on Google Cloud until it is deleted in October 2026</td>
+          <td>Up to 7 days of restore history on Neon; older history is deleted automatically. The Google Cloud copy and its backups are deleted with it</td></tr>
       <tr><td>Request metadata and operational logs (IP address, user agent, URL, status, timing)</td>
           <td>Google Cloud Logging</td>
           <td>30 days, then deleted automatically</td></tr>
@@ -171,7 +171,11 @@
     <li><strong>A third-party cloud computing provider</strong> that hosts our speech-to-text service. It
         receives your voice audio only, and only to transcribe it.</li>
     <li><strong>Google.</strong> Google Identity Platform handles sign-in and holds your email address and
-        password hash. Google Cloud hosts our service, database and logs.</li>
+        password hash. Google Cloud hosts our service and logs, and screens your prompt text for prompt-injection
+        and jailbreak attempts (Model Armor); that screening keeps no copy of your text. Until it is deleted in
+        October 2026, Google Cloud also holds a rollback copy of our database.</li>
+    <li><strong>Neon.</strong> Neon hosts our database (account, subscription and account-activity records) on
+        Amazon Web Services in the United States. It never receives the content of your prompts.</li>
     <li><strong>Stripe.</strong> Stripe processes payments. You give your payment details to Stripe directly.</li>
     <li><strong>A third-party email delivery provider</strong>, which sends our onboarding, trial-notice and
         upgrade-offer emails. It receives your email address, your plan status, your trial end date and
